@@ -1,113 +1,32 @@
-# LeetCode Swift Edition 🚀
+# LeetCode - Swift Edition
 
-A professional, automated, and scalable repository designed to ace LeetCode using **Swift**. Built with a focus on developer experience, automated template generation, and clean code architecture.
+A professional, scalable, and automated repository for LeetCode solutions in Swift.
 
-## 🛠 Features
+## Automation
 
-- **CLI-Powered Ecosystem**: Manage your workflow with a single `./leet` command.
-- **Automated Template Generation**: Fetch problem details, official code snippets, and test skeletons directly from LeetCode.
-- **Dynamic Progress Tracking**: Your `README.md` table updates itself automatically as you solve problems.
-- **Ready-to-Test**: Integrated with `XCTest` and Swift Package Manager (SPM).
-- **CI/CD Ready**: Pre-configured GitHub Actions to validate your solutions on every push.
-
----
-
-## 🚀 Getting Started
-
-### 1. Requirements
-Ensure you have the following installed:
-- **Swift 5.10+** (Part of Xcode)
-- **Python 3.9+** (For automation scripts)
-
-### 2. Installation
-Clone the repository and install the automation dependencies:
+### Fetch and Generate
+Use the script to automatically fetch problem details and code snippets:
 ```bash
-git clone [your-repo-url]
-cd LeetCode
-pip install requests
-chmod +x leet
+python3 scripts/fetch_problem.py --url https://leetcode.com/problems/two-sum/
 ```
 
-### 3. Initialize Catalog
-Download the local problem index (over 3800 problems) to enable fetching by ID:
+### Sync README
+Update this progress table automatically:
 ```bash
-./leet catalog
+python3 scripts/sync_readme.py
 ```
 
----
+> [!NOTE]
+> All problem-related identifiers (folders, files, classes) are prefixed with `P` (e.g., `P1_TwoSum`) because Swift identifiers cannot start with a number.
 
-## 🏃‍♂️ Daily Workflow
-
-Solve problems in four simple steps:
-
-### 1. Fetch
-Generate a solution template and test file by problem ID:
-```bash
-./leet get 1
-```
-
-### 2. Solve
-Write your solution in `Sources/[Difficulty]/[ID_Name]/[ID_Name].swift`. 
-
-### 3. Test
-Verify your implementation immediately:
-```bash
-./leet test
-```
-
-### 4. Sync
-Update your progress table in this README:
-```bash
-./leet sync
-```
-
----
-
-## 🏗 Workflow Diagram
-
-```mermaid
-graph TD
-    A[./leet catalog] -->|Generates| B(problems.json)
-    C[./leet get ID] -->|Reads| B
-    C -->|API Call| D{LeetCode GraphQL}
-    D -->|Success| E[Sources/Problem]
-    D -->|Success| F[Tests/Problem]
-    E -->|Auto-Run| G[./leet sync]
-    G -->|Updates| H(README.md Table)
-```
-
----
-
-## 🛡 Security & License
-
-- **Security**: Hardened scripts with input sanitization. See [SECURITY.md](SECURITY.md) for details.
-- **License**: Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
-
----
-
-## 📁 Repository Structure
-
-```text
-.
-├── Sources/
-│   ├── Easy/             # Easy difficulty solutions
-│   ├── Medium/           # Medium difficulty solutions
-│   ├── Hard/             # Hard difficulty solutions
-│   └── Common/           # Shared models (ListNode, TreeNode)
-├── Tests/                # XCTest unit tests mirroring Sources structure
-├── scripts/              # Python automation logic
-└── leet                  # Unified CLI tool
-```
-
----
-
-## 📊 Progress Overview
+## Progress Overview
 
 | # | Problem | Difficulty | Solution | Time | Space |
 |---|---------|-------------|----------|------|-------|
-| - | - | - | - | - | - |
+| 9 | PalindromeNumber | Easy | [P9_PalindromeNumber.swift](Sources/Easy/P9_PalindromeNumber/P9_PalindromeNumber.swift) | O(?) | O(?) |
 
----
-
-## 📄 License
-This repository is for educational purposes. All problem descriptions are property of LeetCode.
+## Testing
+Run all tests:
+```bash
+swift test
+```

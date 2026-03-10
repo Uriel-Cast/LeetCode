@@ -47,7 +47,7 @@ def sync_readme():
             if "_" not in folder:
                 continue
             
-            problem_id, problem_name = folder.split("_", 1)
+            problem_id, problem_name = folder[1:].split("_", 1) if folder.startswith("P") else folder.split("_", 1)
             swift_file = os.path.join(diff_path, folder, f"{folder}.swift")
             
             if not os.path.exists(swift_file):

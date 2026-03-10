@@ -39,7 +39,7 @@ def create_problem_files(problem):
     
     # Format folder name: ID_Title (e.g., 1_TwoSum)
     safe_title = re.sub(r'[^a-zA-Z0-9]', '', title.replace(' ', ''))
-    folder_name = f"{id}_{safe_title}"
+    folder_name = f"P{id}_{safe_title}"
     target_dir = os.path.join("Sources", difficulty, folder_name)
     
     os.makedirs(target_dir, exist_ok=True)
